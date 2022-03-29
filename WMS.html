@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>WMS</title>
+<script type="text/javascript" src="http://map.vworld.kr/js/vworldMapInit.js.do?version=2.0&apiKey=APIKEY"></script>
+</head>
+
+<body>
+
+<div id="vmap" style="width:100%;height:100%;left:0px;top:0px"></div>
+
+<script type="text/javascript">
+	vw.ol3.MapOptions = {
+	    basemapType: vw.ol3.BasemapType.GRAPHIC
+	  , controlDensity: vw.ol3.DensityType.EMPTY
+	  , interactionDensity: vw.ol3.DensityType.BASIC
+	  , controlsAutoArrange: true
+	  , homePosition: vw.ol3.CameraPosition
+	  , initPosition: vw.ol3.CameraPosition
+	};
+	vmap = new vw.ol3.Map("vmap",  vw.ol3.MapOptions);
+
+	var wmslayer1 = vmap.addNamedLayer("시군구","lt_c_adsigg")
+	vmap.addLayer(wmslayer1)
+	var wmslayer2 = vmap.addNamedLayer("읍면동","lt_c_ademd")
+	vmap.addLayer(wmslayer2)
+	var wmslayer3 = vmap.addNamedLayer("리","lt_c_adri")
+	vmap.addLayer(wmslayer3)
+
+  vmap.getView().setZoom(9)
+
+</script>
+</body>
+</html>
